@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rekening openen</title>
+    <script src="/static/javascript/openAccountScript.js"></script>
+    <link href="/static/css/mainCSS.css" rel="stylesheet">
+</head>
+<body>
+<h1>Open een rekening bij LeenmanBank</h1>
+<p>Voor de tweede stap dient u onderstaande gegevens compleet te maken. Wanneer u alle tabbladen heeft ingevuld, klik
+    dan op de knop 'Opslaan'.</p>
+
+<!--
+Tabs for each part of step 2 of the registration
+-->
+<div class="tabContainer">
+    <button class="tabsItself" id="accountDetailsTab" onclick="showTabDetails('accountDetails')">Account gegevens</button>
+    <button class="tabsItself" id="personalDetailsTab" onclick="showTabDetails('personalDetails')">Persoonlijke gegevens</button>
+    <button class="tabsItself" id="companyDetailsTab" onclick="showTabDetails('companyDetails')">Bedrijfsgegevens</button>
+    <button class="tabsItself" id="contactDetailsTab" onclick="showTabDetails('contactDetails')" onfocus="showButton('saveButton')">Contact gegevens</button>
+</div>
+
+<!-- TODO: whatever is selected, should prompt either business fields or comsumer fields-->
+<!--TODO: should id + name be English?-->
+
+<!--
+Step 2 part A: fill in account details - next part will be shown after clicking 'volgende'
+-->
+<div id="accountDetails" class="tabContent">
+    <h2>Account gegevens</h2>
+    <p>Vul hier uw gebruikersnaam en wachtwoord in om te kunnen inloggen op uw account bij LeenmanBank. In uw account
+        heeft
+        u toegang tot uw rekeningen, alsmede extra opties indien u een zakelijke account wilt openen. De gebruikersnaam
+        dient uniek te zijn, het systeem controleert hierop. Verder zijn er geen eisen hieraan. Het wachtwoord dient
+        minimaal 2 karakters te bevatten.</p>
+    <!--TODO: Check if password should be more complex and add checker to verify if password demands are met-->
+    <table>
+        <tr>
+            <td><label for="Gebruikersnaam">Gebruikersnaam</label></td>
+            <td><input type="text" id="Gebruikersnaam" name="Gebruikersnaam"></td>
+        </tr>
+        <tr>
+            <td><label for="Wachtwoord">Wachtwoord</label></td>
+            <!--type="password" means it's not visible when typed in-->
+            <td><input type="password" id="Wachtwoord" name="Wachtwoord"></td>
+        </tr>
+    </table>
+
+    <!-- Buttons to next/previous tab-->
+    <button onclick="showTabDetails('personalDetails')">Volgende</button>
+</div>
+
+<!--
+Step 2 part B, option 1: fill in personal details - next part will be shown after clicking 'volgende'
+-->
+<div id="personalDetails" class="tabContent" style="display: none">
+    <h2>Persoonlijke gegevens</h2>
+    <p>Vul hieronder uw persoonlijke gegevens in zoals vermeld op uw paspoort.</p>
+    <table>
+        <!--TableHeaders: not needed-->
+
+        <!--TableRows: user fills in the right column-->
+        <tr>
+            <td><label for="BSN">BSN</label></td>
+            <td><input type="text" id="BSN" name="BSN"></td>
+        </tr>
+        <tr>
+            <td><label for="Voornaam">Voornaam</label></td>
+            <td><input type="text" id="Voornaam" name="Voornaam"></td>
+        </tr>
+        <tr>
+            <td><label for="Achternaam">Achternaam (en tussenvoegsels)</label></td>
+            <td><input type="text" id="Achternaam" name="Achternaam"></td>
+        </tr>
+        <tr>
+            <td><label for="Geboortedatum">Geboortedatum</label></td>
+            <td><input type="date" id="Geboortedatum" name="Geboortedatum"></td>
+        </tr>
+    </table>
+
+    <!-- Buttons to next/previous tab-->
+    <button onclick="showTabDetails('accountDetails')">Vorige</button>
+    <button onclick="showTabDetails('contactDetails')">Volgende</button>
+</div>
+
+<!--
+Step 2 part B, option 2: fill in company details - next part will be shown after clicking 'volgende'
+-->
+<div id="companyDetails" class="tabContent" style="display: none">
+    <h2>Bedrijfsgegevens</h2>
+    <p>Vul hieronder de gegevens in van uw onderneming.</p>
+    <table>
+        <!--TableRows: user fills in the right column-->
+        <tr>
+            <td><label for="KvK">KvK-nummer</label></td>
+            <td><input type="text" id="KvK" name="KvK"></td>
+        </tr>
+        <tr>
+            <td><label for="Bedrijfsnaam">Bedrijfsnaam</label></td>
+            <td><input type="text" id="Bedrijfsnaam" name="Bedrijfsnaam"></td>
+        </tr>
+    </table>
+
+    <!-- Buttons to next/previous tab-->
+    <button onclick="showTabDetails('accountDetails')">Vorige</button>
+    <button onclick="showTabDetails('contactDetails')">Volgende</button>
+</div>
+
+<!--
+Step 2 part C: fill in contact details
+-->
+<div id="contactDetails" class="tabContent" style="display: none">
+    <h2>Contact gegevens</h2>
+    <p>Vul hieronder uw contact gegevens in. Deze worden gebruikt ter verificatie van uw rekening alsmede voor
+        (elektronische) communicatie.</p>
+    <table>
+        <tr>
+            <td><label for="Email">Email</label></td>
+            <td><input type="text" id="Email" name="Email"></td>
+        </tr>
+        <tr>
+            <td><label for="Straatnaam">Straatnaam</label></td>
+            <td><input type="text" id="Straatnaam" name="Straatnaam"></td>
+        </tr>
+        <tr>
+            <td><label for="Huisnummer">Huisnummer</label></td>
+            <td><input type="text" id="Huisnummer" name="Huisnummer"></td>
+        </tr>
+        <tr>
+            <td><label for="Toevoeging">Toevoeging</label></td>
+            <td><input type="text" id="Toevoeging" name="Toevoeging"></td>
+        </tr>
+        <tr>
+            <td><label for="Postcode">Postcode</label></td>
+            <td><input type="text" id="Postcode" name="Postcode"></td>
+        </tr>
+        <tr>
+            <td><label for="Stad">Stad</label></td>
+            <td><input type="text" id="Stad" name="Stad"></td>
+        </tr>
+    </table>
+
+    <!-- Buttons to next/previous tab-->
+    <button onclick="showTabDetails('companyDetails')">Vorige</button>
+</div>
+
+<!--End of Step 2, button click goes to next page-->
+<a class="save" id="saveButton" href="openAccountCheckDetails.html"><input type="button" value="Opslaan"></a>
+
+</body>
+</html>

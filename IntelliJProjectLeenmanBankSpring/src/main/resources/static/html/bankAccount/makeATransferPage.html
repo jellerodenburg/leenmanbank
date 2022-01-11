@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/mainCSS.css">
+    <meta charset="UTF-8">
+    <title>Transactie - Leenbank</title>
+</head>
+<body>
+<div class="homeBar">
+    <!--    need to replace the logo-->
+    <img src="https://seeklogo.com/images/T/Test-logo-37F8EF5B80-seeklogo.com.png" alt="Logo" height="50" width="50">
+    <p class="content2">Leenbank</p>
+    <div class="align"></div>
+    <p class="content3"> Voornaam achternaam</p>
+    <p class="content4">Uitloggen</p>
+</div>
+<p align="right">huidige datum</p>
+
+<h1>Transactie</h1>
+
+<h3>Jan Janssen</h3>
+
+<form action="https://www.leenmanbank.nl/money-transfer" method="post">
+
+    <p name="bankaccount">
+        NL00LMNB0123456789
+    </p>
+    <p name="accountAmount">
+        € 5000,00
+    </p>
+    <br><br>
+
+    <label for="transaction_amount_euro">Bedrag:</label><br>
+    <span>€</span>
+    <input type="tel"
+           oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')"
+           id="transaction_amount_euro"
+           name="transaction_amount_euro"
+           value="0">
+
+    <label for="transaction_amount_euro_cents">,</label>
+    <input type="tel"
+           maxlength="2"
+           oninput="this.value=this.value.replace(/(?![0-9])./gmi,'')"
+           id="transaction_amount_euro_cents"
+           name="transaction_amount_euro_cents"
+           value="0"
+    ><br><br>
+
+    <label for="receipient_IBAN">Rekeningnummer ontvanger:</label><br>
+    <input type="text" id="receipient_IBAN" name="receipient_IBAN" value=" "><br><br>
+
+    <label for="transaction_description">Omschrijving transactie:</label><br>
+    <input type="text" id="transaction_description" name="transaction_description" value=" "><br><br>
+
+    <input type="submit" value="Verstuur">
+
+</form>
+
+
+</body>
+</html>

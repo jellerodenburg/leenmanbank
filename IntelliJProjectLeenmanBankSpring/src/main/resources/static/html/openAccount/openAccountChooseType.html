@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rekening openen</title>
+    <script src="/static/javascript/openAccountScript.js"></script>
+</head>
+<body>
+<h1>Open een rekening bij LeenmanBank</h1>
+<p>In twee simpele stappen is uw rekening bij LeenmanBank geopend. Maak uw keuze hieronder en klik op 'Volgende'.</p>
+
+<!--
+Step 1: select type of account - next step (page) will be shown after clicking 'volgende'
+-->
+<div id="typeOfAccount">
+    <h2>Type rekening</h2>
+    <p>Selecteer het type rekening dat u wilt openen. Bij zakelijke rekeningen dient u ook te
+        selecteren in welke sector uw bedrijf actief is. Verder heeft u na het openen van de rekening meerdere opties.
+        Hierover zal uw account manager contact met u opnemen. Deze account manager is tevens uw contactpersoon bij de
+        LeenmanBank.</p>
+
+    <form>
+        <div id="types">
+            <input type="radio" id="Particulier" name="type" value="Particulier" onclick="hideElement('Sector')">
+            <label for="Particulier">Particulier</label>
+            <input type="radio" id="Zakelijk" name="type" value="Zakelijk" onclick="showElement('Sector')">
+            <label for="Zakelijk">Zakelijk</label>
+        </div>
+
+        <label for="Sector"></label>
+        <select id="Sector" style="display: none">
+            <option name="sector" value="ZakelijkeDienstverlening">Zakelijke dienstverlening</option>
+            <option name="sector" value="Bouw">Bouw</option>
+            <option name="sector" value="Gezondheid">Gezondheid</option>
+            <option name="sector" value="Detailhandel">Detailhandel</option>
+            <option name="sector" value="CultuurSportRecreatie">Cultuur, Sport & Recreatie</option>
+            <option name="sector" value="ICTMedia">ICT & Media</option>
+            <option name="sector" value="Groothandel">Groothandel</option>
+            <option name="sector" value="LandTuinbouw">Land- & Tuinbouw</option>
+            <option name="sector" value="Industrie">Industrie</option>
+            <option name="sector" value="Logistiek">Logistiek</option>
+            <option name="sector" value="Horeca">Horeca</option>
+            <option name="sector" value="FinanciëleInstellingen">Financiële Instellingen</option>
+            <option name="sector" value="EnergieWaterMilieu">Energie, Water & Milieu</option>
+            <option name="sector" value="Overige">Overige</option>
+        </select>
+    </form>
+
+    <label id="antwoord">Antwoord</label>
+    <button onclick="saveAccountType('antwoord')">save reply</button>
+    <button onclick="saveAccountType('/openAccountCheckDetails.html/Type')">save reply</button>
+
+    <!--End of Step 1, button click goes to next page-->
+    <button onclick="checkAndOpenNextStep()"><a href="openAccountCompleteDetails.html">Volgende</a></button>
+</div>
+
+</body>
+</html>
